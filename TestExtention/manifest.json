@@ -5,7 +5,7 @@
   "description": "Test extention that opens up basic html page",
   "action": {
     "default_popup": "Notes_page.html",
-    "default_icon": "icon.png"
+    "default_icon": "images/icon.png"
   },
   "permissions": ["storage"]
 }
