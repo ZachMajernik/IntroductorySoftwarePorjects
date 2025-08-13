@@ -1,0 +1,33 @@
+body{
+    font-family: Arial, sans-serif;
+    background: white;
+    margin: auto;
+    padding: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.header{
+    border-radius: 12px;
+    text-align: center;
+}
+
+.container{
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border: 2px solid #0066cc;
+    border-radius: 10px;
+    background-color: #e9f2fb;
+}
+
+input[type="word"]{
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
