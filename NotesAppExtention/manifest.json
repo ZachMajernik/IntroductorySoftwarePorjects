@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "Test extention that opens up basic html page",
   "action": {
-    "default_popup": "Notes_page.html",
+    "default_popup": "login.html",
     "default_icon": "images/icon.png"
   },
   "permissions": ["storage"]
