@@ -8,17 +8,31 @@
 let allAccountsInfo = {};
 
 window.addEventListener("load", () => {
-  let stored = localStorage.getItem("allAccountsInfo");
-  if (stored) {
-    allAccountsInfo = JSON.parse(stored);
-  }
-  console.log(allAccountsInfo);
+    localStorage.setItem("currentUser", "");
+    let stored = localStorage.getItem("allAccountsInfo");
+    if (stored) {
+        allAccountsInfo = JSON.parse(stored);
+    }
+    console.log(localStorage.getItem("currentUser"))
+    console.log(allAccountsInfo);
 });
 
 if (document.body.id === "login_page") {
     const usernameInput = document.getElementById("username_input");
     const passwordInput = document.getElementById("password_input");
     const signInButton = document.getElementById("sign_in_button");
+
+    const invalidLoginText = document.getElementById("invalid_login_text");
+
+    signInButton.addEventListener("click", () => {
+        if(!(allAccountsInfo[usernameInput.value] && passwordInput.value == allAccountsInfo[usernameInput.value]['Password'])){
+            invalidLoginText.innerHTML = "<p>Invalid uesername or password</p>"
+            return;
+        }
+
+        localStorage.setItem("currentUser", usernameInput.value);
+        window.location.replace("notes.html");
+    });
 } else if (document.body.id === "create_account_page") {
     const usernameInput = document.getElementById("username_input");
     const passwordInput = document.getElementById("password_input");
@@ -86,8 +100,8 @@ if (document.body.id === "login_page") {
             'NotesData': {}
         };
 
-        // Update localStorage
         localStorage.setItem("allAccountsInfo", JSON.stringify(allAccountsInfo));
+        localStorage.setItem("currentUser", newAccInfo[0]);
         window.location.replace("notes.html");
     });
 } else if (document.body.id === "forgot_password_page") {
