@@ -113,3 +113,10 @@ nav a, div a, section a {
 nav a:hover, div a:hover, section a:hover {
     color: #f1c40f;
 }
+
+.warning_text {
+    max-width: 500px;
+    text-align: center;
+    font-size: 13px;
+    color: red;
+}

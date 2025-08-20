@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, intial-scale=1.0" />
         <title>Login</title>
         <link rel="stylesheet" href="login_pages_style.css"/>
     </head>
@@ -14,15 +13,15 @@
             </div>
         </header>
         <div>
-            <input type="word" id="temp-name" placeholder="Enter Username"/>
+            <input type="text" id="username_input" placeholder="Enter Username"/>
         </div>
 
         <div>
-            <input type="word" id="temp-name" placeholder="Enter Password"/>
+            <input type="text" id="password_input" placeholder="Enter Password"/>
         </div>
 
         <div>
-            <button class="temp-name" id="temp-name">Enter</button>
+            <button id="sign_in_button">Enter</button>
         </div>
         
         <nav role="navigation" aria-label="INFO Navigation">
@@ -31,5 +30,6 @@
                 <li><a href="forgot_password.html">Forgot Password</a></li>
             </div>
         </nav>
+        <script src="scripts/login_pages_script.js"></script>
     </body>
 </html>

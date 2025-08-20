@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Create Account</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="login_pages_style.css"/>
 </head>
 
 <body id="create_account_page">
@@ -17,28 +16,32 @@
         </div>
     </header>
     <div>
-        <input type="word" id="note-input" placeholder="Username"/>
-        <input type="word" id="note-input" placeholder="Password"/>
+        <input type="text" id="username_input" placeholder="Username"/>
+        <div class="warning_text" id="invalid_username_text"></div>
+        <input type="text" id="password_input" placeholder="Password"/>
+        <div class="warning_text" id="invalid_password_text"></div>
     </div>
 
     <div>
-        <input type="word" id="note-input" placeholder="Security Question 1"/>
-        <input type="word" id="note-input" placeholder="Answer 1"/>
+        <input type="text" id="sec_que_1_input" placeholder="Security Question 1"/>
+        <input type="text" id="answer_1_input" placeholder="Answer 1"/>
     </div>
 
     <div>
-        <input type="word" id="note-input" placeholder="Security Question 2"/>
-        <input type="word" id="note-input" placeholder="Answer 2"/>
+        <input type="text" id="sec_que_2_input" placeholder="Security Question 2"/>
+        <input type="text" id="answer_2_input" placeholder="Answer 2"/>
     </div>
 
     <div>
-        <input type="word" id="note-input" placeholder="Security Question 3"/>
-        <input type="word" id="note-input" placeholder="Answer 3"/>
+        <input type="text" id="sec_que_3_input" placeholder="Security Question 3"/>
+        <input type="text" id="answer_3_input" placeholder="Answer 3"/>
     </div>
 
     <div>
-    <button>Create Account</button>
+        <button id="create_account_button">Create Account</button>
+        <div class="warning_text" id="empty_field_text"></div>
     </div>
     
+    <script src="scripts/login_pages_script.js"></script>
 </body>
 </html>
