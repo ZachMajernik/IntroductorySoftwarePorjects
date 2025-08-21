@@ -30,7 +30,7 @@ if (document.body.id === "login_page") {
 
     signInButton.addEventListener("click", () => {
         if(!(allAccountsInfo[usernameInput.value] && passwordInput.value == allAccountsInfo[usernameInput.value]['Password'])){
-            invalidLoginText.innerHTML = "<p>Invalid uesername or password</p>"
+            invalidLoginText.innerHTML = "<p>Invalid username or password</p>"
             return;
         }
 
