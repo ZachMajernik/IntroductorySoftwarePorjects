@@ -6,7 +6,8 @@
 }
 
 body {
-    height: 100vh;
+    max-height: 850px;
+    width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -127,4 +128,5 @@ nav a:hover, div a:hover, section a:hover {
     text-align: center;
     font-size: 13px;
     color: red;
+    margin-bottom: 10px;
 }
