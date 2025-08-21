@@ -42,6 +42,14 @@ header strong {
     display: block;
 }
 
+.security_questions h2{
+    color: white;
+}
+
+#get_password{
+    color: white;
+}
+
 div, section {
     display: flex;
     flex-direction: column; 
