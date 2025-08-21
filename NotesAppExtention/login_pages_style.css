@@ -26,6 +26,14 @@ body {
     animation: gradientShift 30s ease infinite;
 }
 
+main {
+    width: 70%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 25px;
+}
+
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -38,17 +46,17 @@ header, nav {
 
 header strong {
     font-size: 2rem;
-    color: white;
+    color: rgb(150, 150, 150);
     margin-bottom: 1rem;
     display: block;
 }
 
 .security_questions h2{
-    color: white;
+    color: rgb(150, 150, 150);;
 }
 
 #get_password{
-    color: white;
+    color: rgb(150, 150, 150);;
 }
 
 div, section {
@@ -57,11 +65,13 @@ div, section {
     justify-content: center;
     align-items: center;
     gap: 12px; 
+    margin: 10px;
 }
 
 div input, section input {
     width: 280px;
     padding: 12px;
+    /* margin: 10px; */
     border-radius: 8px;
     border: none;
     outline: none;
@@ -71,13 +81,26 @@ div input, section input {
 }
 
 div input:first-child, section input:first-child {
-    background: #ffffffcc;
+    background: #ebe2e2cc;
     text-align: left;
 }
 
 div input:last-child, section input:last-child {
-    background: #f8f8ffcc;
+    background: #ddd3d3cc;
     text-align: left;
+}
+
+#username_and_pass {
+    padding-bottom: 20px;
+}
+
+#username_and_pass input {
+    background: #ebe2e2cc;
+    text-align: left;
+}
+
+.warning_text:empty {
+  display: none;
 }
 
 div input:focus, section input:focus {
@@ -114,7 +137,7 @@ nav li {
 
 nav a, div a, section a {
     text-decoration: none;
-    color: white;
+    color: rgb(150, 150, 150);;
     font-size: 0.95rem;
     transition: color 0.3s;
 }
@@ -129,4 +152,11 @@ nav a:hover, div a:hover, section a:hover {
     font-size: 13px;
     color: red;
     margin-bottom: 10px;
+}
+
+#get_password h3 {
+    font-size: 18px;
+}
+#get_password p {
+    font-size: 12px;
 }

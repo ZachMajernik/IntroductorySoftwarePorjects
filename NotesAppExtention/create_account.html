@@ -7,41 +7,42 @@
 </head>
 
 <body id="create_account_page">
-    <header>
-        <div>
-            <strong>Create Account</strong>
+    <main>
+        <header>
+            <div>
+                <strong>Create Account</strong>
+            </div>
+            <div>
+                <a href="login.html">Back To Login</a>
+            </div>
+        </header>
+        <div id="username_and_pass">
+            <input type="text" id="username_input" placeholder="Username" autocomplete="off"/>
+            <div class="warning_text" id="invalid_username_text"></div>
+            <input type="text" id="password_input" placeholder="Password" autocomplete="off"/>
+            <div class="warning_text" id="invalid_password_text"></div>
         </div>
+
         <div>
-            <a href="login.html">Back To Login</a>
+            <input type="text" id="sec_que_1_input" placeholder="Security Question 1" autocomplete="off"/>
+            <input type="text" id="answer_1_input" placeholder="Answer 1" autocomplete="off"/>
         </div>
-    </header>
-    <div>
-        <input type="text" id="username_input" placeholder="Username" autocomplete="off"/>
-        <div class="warning_text" id="invalid_username_text"></div>
-        <input type="text" id="password_input" placeholder="Password" autocomplete="off"/>
-        <div class="warning_text" id="invalid_password_text"></div>
-    </div>
 
-    <div>
-        <input type="text" id="sec_que_1_input" placeholder="Security Question 1" autocomplete="off"/>
-        <input type="text" id="answer_1_input" placeholder="Answer 1" autocomplete="off"/>
-    </div>
+        <div>
+            <input type="text" id="sec_que_2_input" placeholder="Security Question 2" autocomplete="off"/>
+            <input type="text" id="answer_2_input" placeholder="Answer 2" autocomplete="off"/>
+        </div>
 
-    <div>
-        <input type="text" id="sec_que_2_input" placeholder="Security Question 2" autocomplete="off"/>
-        <input type="text" id="answer_2_input" placeholder="Answer 2" autocomplete="off"/>
-    </div>
+        <div>
+            <input type="text" id="sec_que_3_input" placeholder="Security Question 3" autocomplete="off"/>
+            <input type="text" id="answer_3_input" placeholder="Answer 3" autocomplete="off"/>
+        </div>
 
-    <div>
-        <input type="text" id="sec_que_3_input" placeholder="Security Question 3" autocomplete="off"/>
-        <input type="text" id="answer_3_input" placeholder="Answer 3" autocomplete="off"/>
-    </div>
-
-    <div>
-        <button id="create_account_button">Create Account</button>
-        <div class="warning_text" id="empty_field_text"></div>
-    </div>
-    
+        <div>
+            <button id="create_account_button">Create Account</button>
+            <div class="warning_text" id="empty_field_text"></div>
+        </div>
+    </main>
     <script src="scripts/login_pages_script.js"></script>
 </body>
 </html>
