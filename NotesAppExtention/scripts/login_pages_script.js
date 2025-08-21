@@ -3,7 +3,9 @@
  * 
  * allAccountsInfo{
  * 'User1': {'password': password, 
- *           'securityInfo': {securityInfoDictionary}, 
+ *           'securityInfo': {'SecQue1': [question, answer],
+ *                            'SecQue2': [question, answer],
+ *                            'SecQue3': [question, answer]}, 
  *           'notesData': {notesDataDictionary}}}
  */
 
@@ -143,10 +145,6 @@ if (document.body.id === "login_page") {
 
     getPasswordButton.addEventListener("click", () => {
         invalidAnswersText.innerHTML = "";
-
-        console.log(answer1Input.value + " " + allAccountsInfo[username]['SecurityInfo']['SecQue1'][1])
-        console.log(answer2Input.value + " " + allAccountsInfo[username]['SecurityInfo']['SecQue2'][1])
-        console.log(answer3Input.value + " " + allAccountsInfo[username]['SecurityInfo']['SecQue3'][1])
 
         if(!((answer1Input.value === allAccountsInfo[username]['SecurityInfo']['SecQue1'][1]) &&
             (answer2Input.value === allAccountsInfo[username]['SecurityInfo']['SecQue2'][1]) && 
