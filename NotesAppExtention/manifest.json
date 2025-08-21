@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Test Extention",
+  "name": "Secure Notes App",
   "version": "1.0",
-  "description": "Test extention that opens up basic html page",
+  "description": "A notes app that saves all of your notes behind a username and password",
   "action": {
     "default_popup": "login.html",
     "default_icon": "images/icon.png"
