@@ -35,7 +35,7 @@ if (document.body.id === "login_page") {
         }
 
         localStorage.setItem("currentUser", usernameInput.value);
-        window.location.replace("notes.html");
+        window.location.replace("notes_list.html");
     });
 } else if (document.body.id === "create_account_page") {
     const usernameInput = document.getElementById("username_input");
@@ -106,7 +106,7 @@ if (document.body.id === "login_page") {
 
         localStorage.setItem("allAccountsInfo", JSON.stringify(allAccountsInfo));
         localStorage.setItem("currentUser", newAccInfo[0]);
-        window.location.replace("notes.html");
+        window.location.replace("notes_list.html");
     });
 } else if (document.body.id === "forgot_password_page") {
     const usernameInput = document.getElementById("username_input");
