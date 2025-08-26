@@ -3,9 +3,8 @@ const logoutButton = document.getElementById("logout_button");
 
 let allAccountsInfo = {};
 let currentUser = ""
+let currentNote = ""
 window.addEventListener("load", () => {
-  localStorage.setItem("currentNote", "");
-
   if (localStorage.getItem("allAccountsInfo")) {
     allAccountsInfo = JSON.parse(localStorage.getItem("allAccountsInfo"));
   }
@@ -16,9 +15,17 @@ window.addEventListener("load", () => {
   console.log(allAccountsInfo[currentUser]['NotesData'])
 
   if(document.body.id === "notes_list_page"){
+    localStorage.setItem("currentNote", "");
     const currentUserText = document.getElementById("current_user_text");
     currentUserText.innerHTML = `<h1>Current User: ${currentUser}</h1>`;
     displayNotes();
+  }else if(document.body.id === "edit_note_page"){
+    if (localStorage.getItem("currentNote")) {
+      currentNote = localStorage.getItem("currentNote");
+    }
+    console.log(currentNote);
+    const noteTitle = document.getElementById("note_title");
+    noteTitle.innerHTML = currentNote
   }
 });
 
@@ -46,6 +53,7 @@ if(document.body.id === "notes_list_page"){
   function openNote(buttonText) {
     localStorage.setItem("currentNote", buttonText);
     console.log("open note: ", localStorage.getItem("currentNote"));
+    window.location.assign("edit_note.html");
   }
 
   function createNewNote(){

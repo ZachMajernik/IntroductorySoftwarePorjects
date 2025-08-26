@@ -35,7 +35,7 @@ if (document.body.id === "login_page") {
         }
 
         localStorage.setItem("currentUser", usernameInput.value);
-        window.location.replace("notes_list.html");
+        window.location.assign("notes_list.html");
     });
 } else if (document.body.id === "create_account_page") {
     const usernameInput = document.getElementById("username_input");
