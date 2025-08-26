@@ -4,19 +4,16 @@
         <meta charset="UTF-8">
         <Title>Logout</Title>
     </head>
-    <body>
+    <body id="notes_list_page">
         <header>
-            <div>
-                <h1 id="current_user_text"></h1>
-            </div>
+            <div id="current_user_text"></div>
         </header>
-
         <section>
             <button id="logout_button">Logout</button>
-            <button id="create_note_button">Create New Note</button>
+            <div id="create_note_div"><button onclick="createNewNote()">Create New Note</button></div>
         </section>
         
         <div id="notes_list"></div>
     </body>
-    <script src="scripts/notes_page.js"></script>
+    <script src="scripts/notes_pages.js"></script>
 </html>
