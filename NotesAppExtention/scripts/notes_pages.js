@@ -69,7 +69,7 @@ if(document.body.id === "notes_list_page"){
         invalidTitleText.innerHTML = "This title is blank or already taken";
         return;
     }
-    allAccountsInfo[currentUser]['NotesData'][newTitle] = "New Note...";
+    allAccountsInfo[currentUser]['NotesData'][newTitle] = "";
     localStorage.setItem("allAccountsInfo", JSON.stringify(allAccountsInfo));
     console.log(allAccountsInfo[currentUser]['NotesData'])
 
