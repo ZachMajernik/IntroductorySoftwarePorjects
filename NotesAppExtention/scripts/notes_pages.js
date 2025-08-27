@@ -44,7 +44,12 @@ if(document.body.id === "notes_list_page"){
       btn.addEventListener("click", (event) => {
         openNote(event.target.textContent);
       });
-      notesList.appendChild(btn);
+
+      let wrapper = document.createElement("div");
+      wrapper.classList.add("edit_note_button");
+
+      wrapper.appendChild(btn);
+      notesList.appendChild(wrapper);
     });
   }
 
