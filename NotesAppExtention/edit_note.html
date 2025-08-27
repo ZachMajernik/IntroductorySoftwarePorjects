@@ -7,9 +7,9 @@
         <strong><h1 id="note_title">Title</h1></strong>
     </header>
     <body id="edit_note_page">
-        <input type="text" placeholder="Add Notes"/>
-        <button>Delete Note</button>
-        <button>Save & Exit</button>
+        <input id="note_input" type="text" placeholder="Add Notes" autocomplete="off"/>
+        <button id="save_button">Save & Exit</button>
+        <div id="delete_note_div"><button id="delete_button" onclick="deleteButtonClicked()">Delete Note</button></div>
     </body>
     <script src="scripts/notes_pages.js"></script>
 </html>

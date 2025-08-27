@@ -24,8 +24,6 @@ window.addEventListener("load", () => {
       currentNote = localStorage.getItem("currentNote");
     }
     console.log(currentNote);
-    const noteTitle = document.getElementById("note_title");
-    noteTitle.innerHTML = currentNote
   }
 });
 
@@ -71,11 +69,53 @@ if(document.body.id === "notes_list_page"){
         invalidTitleText.innerHTML = "This title is blank or already taken";
         return;
     }
-    allAccountsInfo[currentUser]['NotesData'][newTitle] = "";
+    allAccountsInfo[currentUser]['NotesData'][newTitle] = "New Note...";
     localStorage.setItem("allAccountsInfo", JSON.stringify(allAccountsInfo));
     console.log(allAccountsInfo[currentUser]['NotesData'])
 
     createNoteDiv.innerHTML = `<button onclick="createNewNote()">Create New Note</button>`
     displayNotes();
+  }
+}else if(document.body.id === "edit_note_page"){
+  let deleteNoteDiv;
+  let noteInput;
+  window.addEventListener("load", () => {
+    const saveButton = document.getElementById("save_button");
+    noteInput = document.getElementById("note_input"); 
+    const noteTitle = document.getElementById("note_title");
+    deleteNoteDiv = document.getElementById("delete_note_div")
+
+    noteTitle.innerHTML = currentNote
+    noteInput.value = allAccountsInfo[currentUser]['NotesData'][currentNote];
+
+    noteInput.addEventListener("input", () => {
+      save();
+    });
+
+    saveButton.addEventListener("click", () => {
+      save();
+      window.location.replace('notes_list.html')
+    });
+  });
+
+  function save(){
+    allAccountsInfo[currentUser]['NotesData'][currentNote] = noteInput.value;
+    localStorage.setItem("allAccountsInfo", JSON.stringify(allAccountsInfo));
+  }
+
+  function deleteButtonClicked(){
+    deleteNoteDiv.innerHTML = `<button id="delete_button" onclick="deleteNote()">ARE YOU SURE?</button>
+                               <button id="nevermind_button" onclick="cancelDelete()">Never Mind</button>
+                               <p class="warning_text">WARNING: This action is cannot be undone</p>`
+  }
+
+  function cancelDelete(){
+    deleteNoteDiv.innerHTML = `<div id="delete_note_div"><button id="delete_button" onclick="deleteButtonClicked()">Delete Note</button></div>`
+  }
+
+  function deleteNote(){
+    delete allAccountsInfo[currentUser]['NotesData'][currentNote]
+    localStorage.setItem("allAccountsInfo", JSON.stringify(allAccountsInfo));
+    window.location.replace('notes_list.html')
   }
 }
