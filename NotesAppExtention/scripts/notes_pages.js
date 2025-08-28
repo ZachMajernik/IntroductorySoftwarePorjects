@@ -31,19 +31,47 @@ if(document.body.id === "notes_list_page"){
   const logoutButton = document.getElementById("logout_button");
   const createNoteDiv = document.getElementById("create_note_div");
   const notesList = document.getElementById("notes_list");
+  let newNoteButton;
+  let addNoteButton;
+  let cancelButton;
+
+  window.addEventListener("load", () => {
+    resetNewNoteButton();
+  });
+
+  function resetNewNoteButton(){
+    createNoteDiv.innerHTML = `<button id="new_note_button">Create New Note</button><div id="spacer"></div>`;
+    newNoteButton = document.getElementById("new_note_button");
+
+    newNoteButton.addEventListener("click", () => {
+      createNoteDiv.innerHTML = `<input type="text" id="note_title_input" placeholder="Enter Note Title" autocomplete="off"/>
+                                 <button id="add_note_button">Add Note</button><button id="cancel_button">Cancel</button>
+                                 <p class="warning_text" id="invalid_title_text"></p>`
+      
+      addNoteButton = document.getElementById("add_note_button");
+      cancelButton = document.getElementById("cancel_button");
+
+      addNoteButton.addEventListener("click", () => {
+        addNote();
+      });
+
+      cancelButton.addEventListener("click", () => {
+        resetNewNoteButton();
+      });
+    });
+  }
 
   logoutButton.addEventListener("click", () => {
     window.location.replace('login.html')
   });
 
   function displayNotes(){
-    notesList.innerHTML = ""
+    notesList.innerHTML = "";
+
     Object.keys(allAccountsInfo[currentUser]['NotesData']).forEach(noteTitle => {
       let btn = document.createElement("button");
       btn.textContent = noteTitle;
-      btn.addEventListener("click", (event) => {
-        openNote(event.target.textContent);
-      });
+      btn.classList.add("note_button");
 
       let wrapper = document.createElement("div");
       wrapper.classList.add("edit_note_button");
@@ -53,18 +81,12 @@ if(document.body.id === "notes_list_page"){
     });
   }
 
-  function openNote(buttonText) {
-    localStorage.setItem("currentNote", buttonText);
-    console.log("open note: ", localStorage.getItem("currentNote"));
-    window.location.assign("edit_note.html");
-  }
-
-  function createNewNote(){
-    createNoteDiv.innerHTML = `<input type="text" id="note_title_input" placeholder="Enter Note Title" autocomplete="off"/>
-                               <button onclick="addNote()">Add Note</button>
-                               <p class="warning_text" id="invalid_title_text"></p>`
-  }
-
+  notesList.addEventListener("click", (event) => {
+    if (event.target.classList.contains("note_button")) {
+      openNote(event.target.textContent);
+    }
+  });
+  
   function addNote(){
     let noteTitleInput = document.getElementById("note_title_input");
     let invalidTitleText =  document.getElementById("invalid_title_text");
@@ -78,17 +100,28 @@ if(document.body.id === "notes_list_page"){
     localStorage.setItem("allAccountsInfo", JSON.stringify(allAccountsInfo));
     console.log(allAccountsInfo[currentUser]['NotesData'])
 
-    createNoteDiv.innerHTML = `<button onclick="createNewNote()">Create New Note</button>`
+    resetNewNoteButton();
     displayNotes();
   }
+
+  function openNote(buttonText) {
+    localStorage.setItem("currentNote", buttonText);
+    console.log("open note: ", localStorage.getItem("currentNote"));
+    window.location.assign("edit_note.html");
+  }
+
 }else if(document.body.id === "edit_note_page"){
   let deleteNoteDiv;
   let noteInput;
+  let deleteButton1;
+  let deleteButton2;
+  let nevermindButton;
   window.addEventListener("load", () => {
+    const noteTitle = document.getElementById("note_title");
     const saveButton = document.getElementById("save_button");
     noteInput = document.getElementById("note_input"); 
-    const noteTitle = document.getElementById("note_title");
     deleteNoteDiv = document.getElementById("delete_note_div")
+    resetDeleteButton();
 
     noteTitle.innerHTML = currentNote
     noteInput.value = allAccountsInfo[currentUser]['NotesData'][currentNote];
@@ -101,26 +134,35 @@ if(document.body.id === "notes_list_page"){
       save();
       window.location.replace('notes_list.html')
     });
+
   });
+  
+  function resetDeleteButton(){
+    deleteNoteDiv.innerHTML = `<button id="delete_button_1">Delete Note</button>`
+    deleteButton1 = document.getElementById("delete_button_1");
+    
+    deleteButton1.addEventListener("click", () => {
+      deleteNoteDiv.innerHTML = `<button id="delete_button_2">Yes Delete</button><button id="nevermind_button">Never Mind</button>
+                                 <p class="warning_text">WARNING: This action cannot be undone</p>`;
+  
+      deleteButton2 = document.getElementById("delete_button_2");
+      nevermindButton = document.getElementById("nevermind_button");
+  
+      deleteButton2.addEventListener("click", () => {
+        delete allAccountsInfo[currentUser]['NotesData'][currentNote]
+        localStorage.setItem("allAccountsInfo", JSON.stringify(allAccountsInfo));
+        window.location.replace('notes_list.html')
+      });
+    
+      nevermindButton.addEventListener("click", () => {
+        resetDeleteButton();
+      });
+    });
+  }
 
   function save(){
     allAccountsInfo[currentUser]['NotesData'][currentNote] = noteInput.value;
     localStorage.setItem("allAccountsInfo", JSON.stringify(allAccountsInfo));
   }
 
-  function deleteButtonClicked(){
-    deleteNoteDiv.innerHTML = `<button id="delete_button" onclick="deleteNote()">ARE YOU SURE?</button>
-                               <button id="nevermind_button" onclick="cancelDelete()">Never Mind</button>
-                               <p class="warning_text">WARNING: This action is cannot be undone</p>`
-  }
-
-  function cancelDelete(){
-    deleteNoteDiv.innerHTML = `<div id="delete_note_div"><button id="delete_button" onclick="deleteButtonClicked()">Delete Note</button></div>`
-  }
-
-  function deleteNote(){
-    delete allAccountsInfo[currentUser]['NotesData'][currentNote]
-    localStorage.setItem("allAccountsInfo", JSON.stringify(allAccountsInfo));
-    window.location.replace('notes_list.html')
-  }
 }
