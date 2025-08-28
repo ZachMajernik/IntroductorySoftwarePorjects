@@ -44,7 +44,7 @@ if(document.body.id === "notes_list_page"){
     newNoteButton = document.getElementById("new_note_button");
 
     newNoteButton.addEventListener("click", () => {
-      createNoteDiv.innerHTML = `<input type="text" id="note_title_input" placeholder="Enter Note Title" autocomplete="off"/>
+      createNoteDiv.innerHTML = `<input type="text" id="note_title_input" placeholder="Enter Note Title" maxlength="30" autocomplete="off"/>
                                  <button id="add_note_button">Add Note</button><button id="cancel_button">Cancel</button>
                                  <p class="warning_text" id="invalid_title_text"></p>`
       

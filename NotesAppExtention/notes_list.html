@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" href="notes_list.css">
         <meta charset="UTF-8">
         <Title>Logout</Title>
     </head>
@@ -13,11 +14,11 @@
                 <!-- put button in the top left -->
                 <button id="logout_button">Logout</button>
             </div>
-            <!-- give this diva a different background color so that it stands out from the rest of the page -->
-            <div id="create_note_div"><button id="new_note_button">Create New Note</button></div>
+             <main>
+                <div id="create_note_div"><button id="new_note_button">Create New Note</button></div>
+                <div id="notes_list"></div>
+            </main>
         </section>
-        
-        <div id="notes_list"></div>
     </body>
     <script src="scripts/notes_pages.js"></script>
 </html>
