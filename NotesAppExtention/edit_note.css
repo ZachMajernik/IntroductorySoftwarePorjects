@@ -6,7 +6,7 @@
 }
 
 body {
-    max-height: 850px;
+    max-height: 1000px;
     width: 600px;
     display: flex;
     flex-direction: column;
@@ -29,7 +29,7 @@ body {
 
 
 main {
-    width: 70%;
+    width: 95%;
     background-color: white;
     border-radius: 15px;
     padding: 60px 5px 60px 5px;
@@ -73,9 +73,7 @@ header strong {
 
 div, section {
     display: flex;
-    flex-direction: column; 
     justify-content: center;
-    align-items: center;
     gap: 12px; 
     margin: 10px;
 }
@@ -120,24 +118,6 @@ div input:focus, section input:focus {
     box-shadow: 0 3px 10px rgba(0,0,0,0.25);
 }
 
-div button, section button {
-    width: 280px;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    background: #2ecc71;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    transition: background 0.3s, transform 0.2s;
-}
-
-div button:hover, section button:hover {
-    background: #27ae60;
-    transform: scale(1.05);
-}
-
 nav ul {
     padding: 0;
 }
@@ -175,7 +155,7 @@ nav a:hover, div a:hover, section a:hover {
 
 #save_button {
     position: absolute;
-    width: 50%;
+    width: 150px;
     top: 10px;
     left: 10px;
     background-color: #2ecc71 /* Green */;
@@ -191,7 +171,7 @@ nav a:hover, div a:hover, section a:hover {
 #note_input {
     bottom: 20px;
     left: 20px;
-    width: 50%;
+    width: 90%;
     height: 60vh;
     font-size: 1rem;
     border: 2px solid #ccc;
@@ -208,11 +188,10 @@ nav a:hover, div a:hover, section a:hover {
     align-items: start;
 }
 
-#delete_button_1, #delete_button_2 {
+/* #delete_button_1, #delete_button_2 {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    /* align-self: flex-start; */
     background-color: #e74c3c;
     border: none;
     color: white;
@@ -238,18 +217,39 @@ nav a:hover, div a:hover, section a:hover {
 
  .warning_text {
     bottom: 90px;
-    /* left: 60px; */
     align-self: center;
     border: none;
     color: #e74c3c;
     justify-content: center;
     text-align: center;
     border-radius: 8px;
- }
+ } */
 
 #delete_note_div {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    display: flex;
+    gap: 10px;
+}
 
+#delete_note_div button {
+    margin: 5px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+#delete_note_div button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+#delete_note_div #nevermind_button {
+    background-color: #2ecc71;
+}
+#delete_note_div #nevermind_button:hover {
+    background-color: #27ae60;
+    transform: scale(1.05);
 }
