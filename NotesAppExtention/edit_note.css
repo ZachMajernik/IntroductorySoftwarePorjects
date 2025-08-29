@@ -204,17 +204,19 @@ nav a:hover, div a:hover, section a:hover {
     font-family: "Segoe UI", Roboto, Arial, sans-serif;
     margin-bottom: 20px;
     box-sizing: border-box;
+    text-align:left;
+    align-items: start;
 }
 
-#delete_button {
+#delete_button_1, #delete_button_2 {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    align-self: flex-start;
+    /* align-self: flex-start; */
     background-color: #e74c3c;
     border: none;
     color: white;
-    width: 50%;
+    width: 35%;
     padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
@@ -222,11 +224,11 @@ nav a:hover, div a:hover, section a:hover {
 
  #nevermind_button {
     position: absolute;
-    bottom: 60px;
+    bottom: 10px;
     align-self: flex-start;
-    width: 50%;
-    left: 10px;
-    background-color: #e74c3c;
+    width: 35%;
+    left: 200px;
+    background-color: #2ecc71;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -235,7 +237,6 @@ nav a:hover, div a:hover, section a:hover {
  }
 
  .warning_text {
-    position: absolute;
     bottom: 90px;
     /* left: 60px; */
     align-self: center;
@@ -245,3 +246,10 @@ nav a:hover, div a:hover, section a:hover {
     text-align: center;
     border-radius: 8px;
  }
+
+#delete_note_div {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
